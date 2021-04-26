@@ -1,0 +1,96 @@
+title: "Фото Старый Нижний"
+reg: "Регистрация"
+auth: "Авторизация"
+res_pass: "Сброс пароля"
+enter: "Войти"
+exit: "Выйти"
+send: "Отправить"
+save: "Сохранить"
+setting: "Настройки"
+refresh: "Обновить"
+enable: "Включить"
+
+
+main_page:
+  title: "Старый Нижний"
+  time_scale: "Шкала времени:"
+
+nav:
+  enter: "Войти"
+  exit: "Выйти"
+
+auth_form:
+  title: "Авторизация:"
+
+reg_form:
+  button: "Регистрация!"
+  title: "Регистрация"
+
+change_pass_form:
+  enter_email: "Введите свой email"
+  button: "Изменить"
+  title: "Смена пароля"
+
+user:
+  control_panel_title: "user control panel"
+  nav:
+    home: "Home"
+    change_pass: "Изменить пароль"
+    my_mark: "Мои маркеры"
+    list: "Список"
+    add_mark: "Добавить маркер"
+    info: "Справка"
+  get_user_point:
+    long: "долгота:"
+    lat: "широта:"
+  get_user_points:
+    title: "Ваш список маркеров"
+    title_mark: "Заголовок маркера"
+    descr_mark: "Описание маркера"
+    year: "год"
+  point_new:
+    create: "Создать свой маркер"
+
+admin:  
+  control_panel_title: "admin control panel"
+  nav:
+    users: "Пользователи"
+    list: "Список маркеров"
+    add_mark: "Добавить метку"
+  all_users:
+    title: "Все пользователи"
+    user_warn: "удалить пользователя и все его маркеры?"
+  get_user_points:
+    title: "Весь список маркеров"
+    mark_title: "Заголовок маркера"
+    mark_descr: "Описание маркера"
+    year: "год"
+    delete_warn: "удалить маркер и его фото?"
+  point_edit:
+    title: "Рекдактирование метки"
+
+form_type:
+  admin_point:
+    mark_title: "Заголовок маркера"
+    mark_descr: "Описание маркера"
+    long: "координаты широты"
+    lat: "координаты долготы"
+    year: "год"
+    point_view: "направление съемки"
+    tags: "теги"
+    load_image: "Загрузите ваше изображение"
+  change_pass:
+    old_pass: "старый пароль"
+    new_pass: "новый пароль"
+    repeat_pass: "повтор пароля"
+  login:
+    login: "логин"
+    email: "email"
+    pass: "пароль"
+    remember_me: "Запомнить меня"
+  reg_form:
+    name: "имя"
+    email: "email"
+    pass: "пароль"
+    repeat_pass: "повтор пароля"
+    summ: "сумма двух чисел"

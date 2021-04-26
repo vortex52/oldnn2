@@ -1,0 +1,38 @@
+{% extends '@App/User/layout.html.twig' %}
+
+{% block content %}
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=325a137d-6a6c-441d-baef-0d2b5fa16bfe&lang=ru_RU" type="text/javascript"></script>
+
+	<div class="row">
+        <div class="col">
+        	<h2 class="mb-4">Создать свою метку</h2>
+        	<div class="row mb-4">
+        		<div class="col">
+      				<div id="map"></div>
+      			</div>
+        	</div>
+
+			{{ form_start(form) }}
+				{{ form_row(form.title) }}
+				{{ form_row(form.description) }}
+				<div class="form-group">
+					<div class="form-row">
+						<div class="col">							
+							{{ form_widget(form.latitude) }}
+						</div>
+						<div class="col">							
+							{{ form_widget(form.longitude) }}
+						</div>
+					</div>
+				</div>				
+				{{ form_row(form.year) }}
+				{{ form_row(form.rotation) }}
+				{{ form_row(form.image) }}				
+			    <button class="btn btn-secondary" type="submit">Cохранить</button>
+			{{ form_end(form) }}
+
+		  </div>
+    </div>
+
+<script src="{{ asset('js/user_map.js') }}" type="text/javascript"></script>
+{% endblock %}

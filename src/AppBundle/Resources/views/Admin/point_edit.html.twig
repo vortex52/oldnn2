@@ -1,0 +1,48 @@
+{% extends '@App/Admin/layout.html.twig' %}
+
+{% block content %} 
+	<div class="row">
+        <div class="col">
+        	<h2 class="mb-4">{{ "admin.point_edit.title"|trans() }}</h2>
+
+			{{ form_start(form) }}
+				<div class="form-group">
+					<div class="form-row">
+						<div class="col">
+							{{ form_widget(form.longitude) }}
+						</div>
+						<div class="col">
+							{{ form_widget(form.latitude) }}
+						</div>
+					</div>
+				</div>
+				{{ form_row(form.rotation) }}
+				{{ form_row(form.title) }}
+				{{ form_row(form.description) }}
+				{{ form_row(form.year) }}
+				{{ form_row(form.tag) }}
+				{{ form_row(form.enable) }}
+				
+				{% for key, img in form.image %}
+			        <div class="col mb-3">
+			        	{{ form_errors(form) }}
+			            {{ form_widget(img) }}
+			            <a href="{{ photos[key].src }}" target="_blanc">
+			        		<img height="100" src="{{ photos[key].src }}" alt="{{ key }}">
+			        	</a>
+			        </div>
+
+			    {% endfor %}
+
+			    <button class="btn btn-secondary" type="submit">{{ "refresh"|trans() }}</button>
+			{{ form_end(form) }}
+			<br>
+			<br>
+			<br>
+			<br>
+
+		  </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,8 @@
+{% if app.request.locale == 'ru' %}
+	{% include '@App/Front/HomePage/blocks/collapse.html.twig' %}
+{% endif %}
+<div class="container container-nobg">
+    <div class="row">
+        {{ render(controller('OrderBundle:Front/Index:add')) }}
+    </div>
+</div>

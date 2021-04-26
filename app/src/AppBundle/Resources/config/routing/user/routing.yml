@@ -1,0 +1,14 @@
+user.index:
+    path: /index
+    defaults:
+        _controller: AppBundle:User/User:index
+
+user.get.point:
+    path: /get_point
+    defaults:
+        _controller: AppBundle:User/User:ShowUserPoints
+
+user.new.point:
+    path: /new_point
+    defaults:
+        _controller: AppBundle:User/User:AddUserPoints

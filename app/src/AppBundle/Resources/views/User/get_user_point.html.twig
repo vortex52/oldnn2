@@ -1,0 +1,26 @@
+{% extends '@App/User/layout.html.twig' %}
+
+{% block content %}
+	<h2>Ваш список точек</h2>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>                
+                <th>Заголовок метки</th>
+                <th>Описание метки</th>
+                <th>год</th>
+                <th><i class="fa fa-cog" aria-hidden="true"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for point in points %}
+            <tr>
+                <td>{{ point.title }}</td>
+                <td>{{ point.description }}</td>
+                <td>{{ point.year }}</td>
+                <td></td>               
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

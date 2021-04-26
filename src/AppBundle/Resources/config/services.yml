@@ -1,0 +1,35 @@
+services:
+    
+    points.repository:
+        public: true
+        class: AppBundle\Repository\PointsRepository
+        factory: ["@doctrine", getRepository]
+        arguments:
+            - "AppBundle:Points"
+        tags:
+            - { name: knp_paginator.injectable, paginator: '@knp_paginator' }
+
+    user.repository:
+        public: true
+        class: AppBundle\Repository\UserRepository
+        factory: ["@doctrine", getRepository]
+        arguments:
+            - "AppBundle:User"
+        tags:
+            - { name: knp_paginator.injectable, paginator: '@knp_paginator' }
+
+    app.custom:
+        public: true
+        class: AppBundle\Service\Custom
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    app.security.login_form_authenticator:
+        public: true
+        class: AppBundle\Security\FormLoginAuthenticator
+        autowire: true
+        #arguments: ['@doctrine.orm.entity_manager', '@service_container']
+
+    # app.notifier:
+    #     public: true
+    #     class: AppBundle\Service\Notifier
+    #     arguments: ['@mailer', '@twig']

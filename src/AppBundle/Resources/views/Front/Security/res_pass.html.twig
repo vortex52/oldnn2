@@ -1,0 +1,25 @@
+{% extends '@App/Front/layout.html.twig' %}
+
+{% block body %}
+	<div class="container">
+    <div class="row">
+        <div class="col">
+        	<h2 class="mb-4">{{ 'change_pass_form.title'|trans() }}</h2>
+
+			{{ form_start(form) }}			    
+			    {{ form_row(form.email) }}			    
+			    <div class="form-group quest-block">
+				    <span class="">{{ captcha }}</span>
+			    	{{ form_widget(form.abc) }}
+			    </div>
+
+			    <button class="btn btn-secondary" type="submit">{{ 'send'|trans() }}</button>
+			{{ form_end(form) }}
+
+		  </div>		  
+    </div>
+    <div class="mt-4">
+		  	<a class="btn btn-secondary" href="{{ path('test.email') }}">Test Mail</a>
+	</div>
+</div>
+{% endblock %}

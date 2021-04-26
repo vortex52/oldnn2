@@ -1,0 +1,20 @@
+{% extends '@App/User/layout.html.twig' %}
+
+{% block content %}
+   
+        <h3 class="">{{ points.title }} <span class="badge badge-secondary">{{ points.year }} г.</span></h3>
+        <hr class="my-4">
+        <p class="lead">{{ points.description }}</p>
+        <div class="row">
+            <div class="col bg-dark text-white">{{ 'user.get_user_point.lat'|trans() }} 
+            {{ points.latitude }} </div>
+            <div class="col bg-dark text-white">{{ 'user.get_user_point.long'|trans() }} 
+            {{ points.longitude }}</div>
+        </div>
+        {% for photo in photos %}
+            <div class="row mt-3">
+                <img class="main-img img-fluid rounded mx-auto d-block" src="{{ photo.src }}">
+            </div>
+        {% endfor %}
+   
+{% endblock %}

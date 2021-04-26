@@ -1,0 +1,18 @@
+https://185.188.183.228:1500/ispmgr
+denutin
+v7gwCweWeShrvPa1cWwP
+------------------------------------------------------------------
+FTP: astrumserver.ru port 21
+log enutinru_den
+pass xryjNQwsbByK0i8Z4mwX
+
+mysql
+define("DB_HOST","localhost");
+define("DB_USER_NAME","enutinru_den3");
+define("DB_PASS","Z3s1Z9v4");
+
+ssh enutinru_den@astrumserver.ru
+
+
+
+ftp ftp.freebsd.org

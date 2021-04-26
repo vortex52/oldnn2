@@ -1,0 +1,47 @@
+{% extends '@App/Front/layout.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {#<div class="alert alert-danger">логин или пароль не совпадают</div>#}
+            {% endif %}
+
+            <h2 class="mb-4">Авторизация:</h2>
+
+            {#<form action="{{ path('login') }}" method="post">
+                <div class="form-group">                   
+                    <input type="text" id="username" class="form-control" name="_username" placeholder="Логин" value="{{ last_username }}" required="" />
+                </div>
+
+                <div class="form-group">                  
+                    <input type="password" id="password" class="form-control" placeholder="Пароль" name="_password" required="" />
+                </div>
+
+                <input type="hidden" name="_target_path" value="{{ path('admin.index') }}" />
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                <button class="btn btn-secondary" type="submit"><i class="fa fa-lock" aria-hidden="true"></i> Submit</button>
+            </form>#}
+
+            
+            {# form_start(form, {'action': path('login'), 'method': 'POST'}) #}
+            {{ form_start(form) }}
+                {{ form_row(form._username) }}
+                {{ form_row(form._password) }}
+                <button class="btn btn-secondary" type="submit"><i class="fa fa-lock" aria-hidden="true"></i> Войти</button>
+            {{ form_end(form) }}
+
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}               
+            {% else %}
+                 <p class="mt-3"><a href="/register">Регистрация</a></p>
+            {% endif %}
+           
+
+        </div>
+    </div>
+</div>
+{% endblock %}

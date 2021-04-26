@@ -1,0 +1,13 @@
+<nav class="navbar navbar-dark sticky-top bg-dark">
+	<a class="navbar-brand" href="{{ path('home') }}"><i class="fa fa-camera" aria-hidden="true"></i></a>      
+    
+    <span class="navbar-text">
+    
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') or is_granted('IS_AUTHENTICATED_FULLY') %}
+    	<a href="{{ path('user.index') }}">{{ app.user.username }}</a>
+        <a class="pl-3" href="{{ path('logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> {{ 'nav.exit'|trans() }}</a>
+    {% else %}
+        <a class="nav-link" href="{{ path('login') }}"><i class="fa fa-user" aria-hidden="true"></i> {{ 'nav.enter'|trans() }}</a>
+    {% endif %}
+    </span>
+</nav>

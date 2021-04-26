@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="Keywords" content="">
+    
+    <title>{% block title %} {{ 'title'|trans() }} {% endblock %}</title>
+
+    {% block stylesheets %}       
+        <link rel="stylesheet" href="{{ asset('/lib/bootstrap-4.3.1-dist/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('/lib/jquery-ui-1.12.1/jquery-ui.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('/lib/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+    {% endblock %}
+
+    {% block ymaps_scripts %}{% endblock %}
+</head>
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">Вы используете <strong>устаревший</strong> броузер. Пожалуйста <a href="http://browsehappy.com/">обновите его </a> чтобы стать лучше!</p>
+    <![endif]-->
+
+    
+    {% include('@App/Front/nav_bar.html.twig') %}
+    
+
+    {% include('@App/Common/flash_messages.html.twig') %}
+
+    {% block body %}{% endblock %}
+
+    <footer>
+        {# include '@App/Front/footer.html.twig' #}
+    </footer>   
+
+    {% block javascripts %}        
+        <script type="text/javascript" src="{{ asset('/lib/jquery/jquery-1.12.0.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/lib/bootstrap-4.3.1-dist/js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/lib/jquery-ui-1.12.1/jquery-ui.min.js') }}"></script>     
+    {% endblock %}
+
+    {% block setting_map_script %}{% endblock %}
+    </body>
+</html>
+
+

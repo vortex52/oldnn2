@@ -1,0 +1,7 @@
+services:
+    points.repository:
+        public: true
+        class: AppBundle\Repository\PointsRepository
+        factory: ["@doctrine", getRepository]
+        arguments:
+            - "AppBundle:Points"

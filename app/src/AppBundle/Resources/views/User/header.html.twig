@@ -1,0 +1,30 @@
+
+<aside class="col-12 col-sm-2 p-0 bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark align-items-start flex-sm-column flex-row">
+        <a class="navbar-brand" href="{{ path('home') }}"><i class="fa fa-camera fa-fw"></i> Home</a>
+        <a href class="navbar-toggler" data-toggle="collapse" data-target=".sidebar">
+           <span class="navbar-toggler-icon"></span>
+        </a>
+        <div class="collapse navbar-collapse sidebar">
+            <ul class="flex-column navbar-nav w-100 justify-content-between">
+                <li class="nav-item">
+                    <a class="nav-link pl-0" href="#"><i class="fa fa-user fa-fw"></i> <span class="">{{ app.user.username }}</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link pl-0 dropdown-toggle text-nowrap" href="#m1" data-toggle="collapse" data-target="#m1" aria-expanded="false">
+                        <i class="fa fa-map-marker fa-fw"></i> <span class=""> Мои метки</span>
+                    </a>
+                    <div class="collapse" id="m1">
+                        <ul class="flex-column nav">
+                            <a class="nav-link px-0 text-truncate" href="{{ path('user.get.point') }}">Список</a>
+                            <a class="nav-link px-0 text-truncate" href="{{ path('user.new.point') }}">Добавить метку</a>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link pl-0" href="#"><i class="fa fa-info-circle fa-fw"></i> <span class="">Справка</span></a>
+                </li>                
+            </ul>
+        </div>
+    </nav>
+</aside>

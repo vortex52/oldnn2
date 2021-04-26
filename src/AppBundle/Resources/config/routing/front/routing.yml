@@ -1,0 +1,44 @@
+home:
+    path: /
+    defaults:
+        _controller: AppBundle:Front\Default:index
+    
+login:
+    path: /login
+    defaults:
+        _controller: AppBundle:Front/Security:login
+
+register:
+    path: /register
+    defaults:
+        _controller: AppBundle:Front/Registration:register
+
+logout:
+    path: /logout
+    defaults:
+        _controller: AppBundle:Front/Security:logout
+        
+login_check_route:
+    path: /login_check
+    defaults:
+        _controller: AppBundle:Front/Security:loginCheck
+
+reset_pass:
+    path: /reset_pass
+    defaults:
+        _controller: AppBundle:Front/Registration:ResetPassViewForm
+
+change_pass:
+    path: /change_pass
+    defaults:
+        _controller: AppBundle:Front/Registration:ChangePassUser
+
+search_tags:
+    path: /search_tags
+    defaults:
+        _controller: AppBundle:Front/Ajax:TagSearch
+
+test.email:
+    path: /test_email
+    defaults:
+        _controller: AppBundle:Front/Default:TestEmail

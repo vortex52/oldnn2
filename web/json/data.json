@@ -1,0 +1,167 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+
+    {
+        "type": "Feature",
+        "id": 0,
+        "geometry": {
+            "type": "Point", "coordinates": [56.31813600, 44.015156]
+        },
+        "properties": {
+            "hintContent": "пл. Свободы",
+            "rotation": 0,
+            "tags" : ["Кремль", "Нижний Новгород", "Башня"]
+        },
+        "options": {
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tellus lacus, dictum eget libero fringilla, ornare volutpat neque volutpat.",
+            "year": "1810",
+            "img": "/images/photo/jzvmny2t0c7oz45uct.jpg"
+        }
+
+    },
+    {
+        "type": "Feature",
+        "id": 1,
+        "geometry": {
+            "type": "Point", "coordinates": [56.31297300, 43.99004100]
+        },
+        "properties": {
+            "hintContent": "Новая площадь и Готмановская (Костина) улица",
+            "rotation": 40
+        },
+        "options": {
+            "description": "Городской детский приют имени О.В.Кутайсовой 1882",
+            "year": "1820",
+            "img": "/images/photo/ncomqnrt73m67bdkl3.jpg"
+        }
+    },
+    {
+        "type": "Feature",
+        "id": 2,
+        "geometry": {
+            "type": "Point", "coordinates": [56.316703, 43.980588]
+        },
+        "properties": {
+            "hintContent": "Жандармский овраг",
+            "rotation": 40
+        },
+        "options": {
+            "description": "Судя по наличию шпиля, снимок сделан ранее 1894.",
+            "year": "1830",
+            "img": "/images/photo/nco2974bli10081ame.jpg"
+        }
+    },
+    {
+        "type": "Feature",
+        "id": 3,
+        "geometry": {
+            "type": "Point", "coordinates": [56.326766, 44.005512]
+        },
+        "properties": {
+            "hintContent": "Площадь Минина и Пожарского",
+            "rotation": -40
+        },
+        "options": {
+            "description": "Площадь Минина и Пожарского",
+            "year": "1840",
+            "img": "/images/photo/7740i9ha01u6ldnlvh.jpg"
+        }
+    },
+    {
+        "type": "Feature",
+        "id": 4,
+        "geometry": {
+            "type": "Point", "coordinates": [56.330009, 44.011946]
+        },
+        "properties": {
+            "hintContent": "Первая серия",
+            "rotation": 40
+        },
+        "options": {
+            "description": "Блистательная машина на фоне Георгевского сьезда",
+            "year": "1850",
+            "img": "/images/photo/i2h0brrlzvlnt3xsns.jpg"
+        }
+    },
+    {
+        "type": "Feature",
+        "id": 5,
+        "geometry": {
+            "type": "Point", "coordinates": [56.325268, 44.035413]
+        },
+        "properties": {
+            "hintContent": "Красная слобода",
+            "rotation": 40
+        },
+        "options": {
+            "description": "Вот такие домушки",
+            "year": "1890",
+            "img": "/images/photo/lqy559xr47w44rqpyl.jpg"
+        }
+    },
+    {
+        "type": "Feature",
+        "id": 6,
+        "geometry": {
+            "type": "Point", "coordinates": [56.322663, 44.033915]
+        },
+        "properties": {
+            "hintContent": "Площадь сенная",
+            "rotation": 180
+        },
+        "options": {
+            "description": "Славный грузовичек и часы)",
+            "year": "1900",
+            "img": "/images/photo/gqs520uz0tve3snp0q.jpg"
+        }
+    },
+    {
+        "type": "Feature",
+        "id": 7,
+        "geometry": {
+            "type": "Point", "coordinates": [56.321951, 44.033670]
+        },
+        "properties": {
+            "hintContent": "ул. Белинского",
+            "rotation": 120
+        },
+        "options": {
+            "description": "Конец улицы Белинского, ну и грязища...",
+            "year": "1910",
+            "img": "/images/photo/90vbryc6q28o6drh5rrrr.jpg"
+        }
+    },
+    {
+        "type": "Feature",
+        "id": 8,
+        "geometry": {
+            "type": "Point", "coordinates": [56.321421, 44.040455]
+        },
+        "properties": {
+            "hintContent": "Дом курсанта речного училища",
+            "rotation": 160
+        },
+        "options": {
+            "description": "А теперь здесь сидит ОПБОП со своим светофором",
+            "year": "1920",
+            "img": "/images/photo/w8mpzdnbj48wgrvis7.jpg"
+        }
+    },
+    {
+        "type": "Feature",
+        "id": 9,
+        "geometry": {
+            "type": "Point", "coordinates": [56.319723, 44.047594]
+        },
+        "properties": {
+            "hintContent": "Улица Донецкая",
+            "rotation": -90
+        },
+        "options": {
+            "description": "Что то не так",
+            "year": "1970",
+            "img": "/images/photo/5pyryixptfc6lc3nc6.jpg"
+        }
+    }    
+]}

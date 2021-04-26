@@ -1,0 +1,11 @@
+cms:
+  page:
+    open_constructor: "Open 3D constructor"
+    form:
+      add_title: "Add page"
+      edit_title: "Edit page"
+      slug: "URL"
+      footerContent: "footer block"
+
+    corporate:
+      title: "Portfolio corporate orders"

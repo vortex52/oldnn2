@@ -1,0 +1,40 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <ul class="nav navbar-nav hidden-sm hidden-xs">
+            <li><a href="{{ path('front.home_page.index') }}" target="_blanc"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></a></li>
+            <li><a href="{{ path('admin.page.index') }}">{{ 'admin.menu.pages'|trans() }}</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">{{ 'header.menu.portfolio'|trans() }}<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ path('admin.portfolio.index') }}">{{ 'header.menu.portfolio'|trans() }}</a></li>
+                    <li><a href="{{ path('admin.category_portfolio.index') }}">{{ 'admin.menu.portfolio_categories'|trans() }}</a></li>
+                    <li><a href="{{ path('admin.attribute.index') }}">{{ 'admin.menu.portfolio_attributes'|trans() }}</a></li>
+                    <li><a href="{{ path('admin.attribute_groups.index') }}">{{ 'admin.menu.attribute_groups'|trans() }}</a></li>
+                </ul>
+            </li>
+            <li><a href="{{ path('slider_index') }}">{{ 'admin.menu.slider'|trans() }}</a></li>
+            <li><a href="{{ path('admin.order.index') }}">{{ 'admin.menu.orders'|trans() }}</a></li>
+            <li><a href="{{ path('constructor_homepage') }}">Конструктрор v2</a></li>
+            <!-- <li><a href="{{ path('poll_homepage') }}">POLL</a></li> -->
+            <li><a href="{{ path('blog_index') }}">BLOG</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{ path('logout') }}">{{ 'login.form.logout'|trans() }}</a></li>
+            <li><a class="cm-confirm" href="{{ path('admin.clear_cache') }}" data-message="Подтвердить очистку -env prod">Clear Cache</a></li>
+            <li> 
+                <div class="dropdown-cont">
+                    {% if app.request.locale == 'en' %}
+                        <div class="dropbtn-en">EN</div>
+                    {% else %}
+                         <div class="dropbtn">RU</div>
+                    {% endif %}
+
+                  <div class="dropdown-content">
+                    <a href="{{ path('change_local', {'lang': 'ru'}) }}">RU</a>
+                    <a href="{{ path('change_local', {'lang': 'en'}) }}">EN</a>
+                  </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

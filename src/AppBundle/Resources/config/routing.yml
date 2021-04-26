@@ -1,0 +1,10 @@
+app.front:
+    resource: "routing/front/routing.yml"
+
+app.admin:
+    resource: "routing/admin/routing.yml"
+    prefix: /admin
+
+app.user:
+    resource: "routing/user/routing.yml"
+    prefix: /user

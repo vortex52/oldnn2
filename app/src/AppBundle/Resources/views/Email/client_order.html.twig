@@ -1,0 +1,21 @@
+{% extends '@Order/Email/base.html.twig' %}
+
+{% block content %}
+    <a href="http://atelier-caviar.ru">
+        <img src="http://atelier-caviar.ru/images/logo-min.png" width="200">
+    </a>
+    
+    <p>Здравствуйте, {{ username }}!</p> 
+
+    <p>Эскиз телефона, на основе которого Вам будет предложен персональный дизайн, во вложении</p>       
+        
+        {% if options|length > 0 %}
+        <p>
+            Выбранные вами опции:<br/>{{ options|raw }}
+        </p>
+        {% endif %}
+        <hr>       
+        <p>В ближайшее время с Вами свяжется менеджер Ателье, для уточнения стоимости и всех деталей заказа.</p>
+    
+    <p><a href="http://atelier-caviar.ru">Перейти на сайт Ателье Caviar >></a></p>
+{% endblock %}

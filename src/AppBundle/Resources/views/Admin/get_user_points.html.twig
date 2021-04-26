@@ -1,0 +1,59 @@
+{% extends '@App/Admin/layout.html.twig' %}
+
+{% block content %}
+
+	<h2>{{ "admin.get_user_points.title"|trans() }}</h2>
+    <a class="btn btn-warning cm-confirm mb-3" data-toggle="confirmation" data-title="подтвердите запись в json" href="{{ path('admin.save.points.file') }}">
+        <i class="fa fa-floppy-o" aria-hidden="true"></i></span> DATA SAVE JSON
+    </a>
+
+
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>{{ "admin.get_user_points.mark_title"|trans() }}</th>
+                <th>{{ "admin.get_user_points.mark_descr"|trans() }}</th>
+                <th>{{ "admin.get_user_points.mark_title"|trans() }}</th>
+                <th>image</th>
+                <th class="text-center"><i class="fa fa-cog" aria-hidden="true"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for point in points %}        
+        {% set ImageSrc = point.image.first.src %}        
+            <tr class="{% if point.enable == false %} table-warning {% endif %}">
+                <td>
+                    <a href="{{ path('admin.edit.point', {'id': point.id }) }}">
+                        {{ point.title }}
+                    </a>
+                </td>
+                <td>{{ point.description }}</td>
+                <td>{{ point.year }}</td>
+                <td>
+                    <img src="{{ asset('/uploads/photo/' ~ ImageSrc) | imagine_filter('my_thumb') | replace({'%3F': '?'}) }}"/>
+                </td>
+                <td class="text-center"> 
+
+                    <div class="dropdown">
+                      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-cog" aria-hidden="true"></i>
+                      </button>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ path('admin.edit.point', {'id': point.id }) }}">
+                        <i class="fa fa-pencil" aria-hidden="true"></i> edit</a>
+                        <a class="dropdown-item" data-toggle="confirmation" data-title="{{ "admin.get_user_points.delete_warn"|trans() }}" href="{{ path('admin.del.point', {'id': point.id }) }}">
+                        <i class="fa fa-trash" aria-hidden="true"></i> delete</a>
+                      </div>
+                    </div>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<div class="navigation">
+    {{ knp_pagination_render(points) }}
+</div>
+
+{% endblock %}

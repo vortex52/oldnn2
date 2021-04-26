@@ -1,0 +1,9 @@
+{% extends '@App/Email/base.html.twig' %}
+
+{% block content %}
+<p>Здравствуйте, Admin!</p> 
+
+<p>{{ user_name }} Добавил новый маркер, ссылка для модерации в админке:</p>
+<a style="padding: 10px 0px;" target="_blank" rel="noopener noreferrer" href="{{ path }}">{{ path }}</a>
+
+{% endblock %}

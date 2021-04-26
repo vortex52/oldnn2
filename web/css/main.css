@@ -1,0 +1,202 @@
+@font-face {
+    font-family: PlayFair_bold; 
+    src: url(../fonts/playfair-display-bold.ttf); 
+ }
+
+@font-face {
+    font-family: PlayFair_regular; 
+    src: url(../fonts/playfair-display.ttf); 
+ }
+
+@font-face {
+    font-family: PlayFair_italic; 
+    src: url(../fonts/playfair-display-italic.ttf); 
+ }
+
+body {
+    font-family: 'PlayFair_regular', arial;
+    background: #fffddf;
+}
+
+
+html body #map {
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    margin: 0;
+    padding: 0;    
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: PlayFair_bold, arial;
+}
+
+.navbar .navbar-brand i {
+   font-size: 34px;
+}
+
+/*.arrow-icon {
+    position: absolute;
+    left: -16px;
+    top: -16px;
+    width: 32px;
+    height: 32px;    
+    background-size: 32px 32px;
+    background-position: 0px 0px;
+    background: url("../img/icon/video-camera.svg");
+}
+*/
+.arrow-icon {
+    position: absolute;
+    left: -14px;
+    top: -14px;
+    width: 28px;
+    height: 28px;    
+    background-size: 28px 28px;
+    background-position: 0px 0px;
+/*    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMzMyLjgwNCAzMzIuODA0IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMzIuODA0IDMzMi44MDQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxnPg0KCQk8Zz4NCgkJCTxwYXRoIGQ9Ik0zMzAuODA0LDE3MS4wMDJjLTMuNi02LjQtMTItOC44LTE4LjgtNC44bC00NS42LDI2LjRsLTExLjYsNi44djYzLjJsMTAuOCw2LjRjMC40LDAsMC40LDAuNCwwLjgsMC40bDQ0LjgsMjYNCgkJCQljMiwxLjYsNC44LDIuNCw3LjYsMi40YzcuNiwwLDEzLjYtNiwxMy42LTEzLjZ2LTUzLjZsMC40LTUyLjhDMzMyLjgwNCwxNzUuNDAyLDMzMi40MDQsMTczLjAwMiwzMzAuODA0LDE3MS4wMDJ6Ii8+DQoJCQk8cGF0aCBkPSJNNjQuNDA0LDE1MC42MDJjMzUuNiwwLDY0LjQtMjguOCw2NC40LTY0LjRjMC0zNS42LTI4LjgtNjQuNC02NC40LTY0LjRzLTY0LjQsMjguOC02NC40LDY0LjQNCgkJCQlDLTAuMzk2LDEyMS44MDIsMjguODA0LDE1MC42MDIsNjQuNDA0LDE1MC42MDJ6IE02NC40MDQsNTkuODAyYzE0LjgsMCwyNi40LDEyLDI2LjQsMjYuNGMwLDE0LjgtMTIsMjYuNC0yNi40LDI2LjQNCgkJCQljLTE0LjQsMC0yNi40LTEyLTI2LjQtMjYuNEMzNy42MDQsNzEuNDAyLDQ5LjYwNCw1OS44MDIsNjQuNDA0LDU5LjgwMnoiLz4NCgkJCTxwYXRoIGQ9Ik0yMjcuNjA0LDE1NC4yMDJjLTEwLjQsNS4yLTIyLDguNC0zNC40LDguNGMtMTUuMiwwLTI5LjYtNC40LTQxLjYtMTIuNGgtNDUuNmMtMTIsOC0yNi40LDEyLjQtNDEuNiwxMi40DQoJCQkJYy0xMi40LDAtMjQtMi44LTM0LjQtOC40Yy05LjIsNS4yLTE1LjYsMTUuNi0xNS42LDI2Ljh2OTcuNmMwLDE4LDE0LjgsMzIuNCwzMi40LDMyLjRoMTY0LjRjMTgsMCwzMi40LTE0LjgsMzIuNC0zMi40di05Ny42DQoJCQkJQzI0My4yMDQsMTY5LjgwMiwyMzYuODA0LDE1OS40MDIsMjI3LjYwNCwxNTQuMjAyeiIvPg0KCQkJPHBhdGggZD0iTTE5My4yMDQsMTUwLjYwMmMzNS42LDAsNjQuNC0yOC44LDY0LjQtNjQuNGMwLTM1LjYtMjguOC02NC40LTY0LjQtNjQuNGMtMzUuNiwwLTY0LjQsMjguOC02NC40LDY0LjQNCgkJCQlDMTI4LjgwNCwxMjEuODAyLDE1Ny42MDQsMTUwLjYwMiwxOTMuMjA0LDE1MC42MDJ6IE0xOTMuMjA0LDU5LjgwMmMxNC44LDAsMjYuNCwxMiwyNi40LDI2LjRjMCwxNC44LTEyLDI2LjQtMjYuNCwyNi40DQoJCQkJYy0xNC40LDAtMjYuNC0xMi0yNi40LTI2LjRDMTY2LjgwNCw3MS40MDIsMTc4LjQwNCw1OS44MDIsMTkzLjIwNCw1OS44MDJ6Ii8+DQoJCTwvZz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==");
+*/  background-color: #434e54;
+    -webkit-mask:  url(../images/icon/video-camera.svg) no-repeat 50% 50%;
+    mask: url(../images/icon/video-camera.svg) no-repeat 50% 50%;
+    cursor: pointer;
+}
+
+.arrow-icon-cluster {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    left: -23px;
+    top: -23px;
+    background-size: 46px 46px;
+    background-position: 0px 0px;
+    background-color: #000080;
+    -webkit-mask:  url(../images/icon/video-camera.svg) no-repeat 50% 50%;
+    mask: url(../images/icon/video-camera.svg) no-repeat 50% 50%;
+    cursor: pointer;    
+    text-align: center;    
+}
+
+.arrow-icon-cluster strong {
+    position: absolute;
+    text-align: center;
+    left: -5px;
+    top: 19px;
+    width: 46px;
+    height: 16px;
+    color: #fff;
+    font-size: 16px;
+}
+
+#photo-block {
+   /* display: none;*/
+}
+
+.badge-secondary {
+    color: #fff;
+    background-color: #434e54;
+    padding-bottom: 12px;
+}
+
+.arrow-icon.active-point {
+    background-color: #960018;
+}
+
+.pb-img {
+    cursor: pointer;
+}
+
+.pb-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;   
+} 
+
+.spinner-block {
+    display: none;
+}
+
+.ui-slider .ui-slider-handle {
+    position: absolute;
+    z-index: 2;
+    width: 1.5em;
+    height: 1.5em;
+    cursor: default;
+    -ms-touch-action: none;
+    touch-action: none;
+    border-radius: 0px;
+    background: #434e54;
+    outline: none;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+    top: -.4em;
+    margin-left: -.6em;
+    cursor: pointer;
+}
+
+.ui-slider-horizontal {
+    height: .9em;
+}
+
+.slider-block #amount {
+    font-family: PlayFair_bold, arial;
+    background: inherit;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.form-group.quest-block {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.form-group.quest-block span {
+    font-family: PlayFair_bold;
+    font-size: 18px;
+    padding-right: 5px;
+}
+
+.form-group.quest-block input {
+    width: 30%;
+}
+
+/*autocomplete fields*/
+ul.ui-autocomplete.ui-widget-content { 
+    width: 27%;
+    z-index: 2;
+    background: #ffffff;      
+    padding: 5px 5px 5px 5px;
+    list-style-type: none;
+    border: 1px solid #555;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+ul.ui-autocomplete li {
+    padding: 3px 0px;
+    cursor: pointer;
+    color: #212529;
+}
+
+ul.ui-autocomplete li:hover {
+    color: #000000;
+    background: #ffffff;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+    border: 1px solid #ccc;
+    background: #343a40;
+    font-weight: normal;
+    color: #ffffff;
+}
+
+#clear-tags {
+    cursor: pointer;
+}

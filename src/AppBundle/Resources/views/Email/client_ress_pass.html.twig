@@ -1,0 +1,9 @@
+{% extends '@App/Email/base.html.twig' %}
+
+{% block content %}
+<p>Здравствуйте, {{ user_name }}!</p> 
+
+<p>Вот ваш временный пароль - {{ pass }}</p>
+
+<p><a href="http://atelier-caviar.ru">Перейти на сайт Старый Нижний ></a></p>
+{% endblock %}

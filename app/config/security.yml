@@ -1,0 +1,61 @@
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+    encoders:
+        AppBundle\Entity\User:
+            algorithm: bcrypt
+
+    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    providers:
+        in_memory:
+             memory:
+                users:
+                    admin:
+                        password: $2a$12$Y73DBYjsSdmSRVGQ.OYLQ.7mppPTWBdLJRmJ6bgSZV7pjAe6SoaHe
+                        roles: 'ROLE_ADMIN'
+        our_db_provider:
+            entity:
+                class: AppBundle:User
+                property: email
+
+    access_control:
+        # require ROLE_ADMIN for /admin*
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/user, roles: ROLE_USER }
+        - { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+    role_hierarchy:
+        ROLE_ADMIN: [ROLE_USER]
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            logout_on_user_change: true
+            anonymous: ~
+            #provider: our_db_provider
+            guard:
+                authenticators:
+                    - app.security.login_form_authenticator
+                    
+            access_denied_handler: AppBundle\Security\AccessDeniedHandler
+            form_login:
+                login_path: login
+                check_path: login
+                default_target_path: user.index
+            logout:
+              path: logout
+              target: /
+
+            remember_me:
+                secret: '%secret%'
+                lifetime: 604800 # 1 week in seconds
+                path: /
+
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            #http_basic: ~
+            # https://symfony.com/doc/current/security/form_login_setup.html
+            

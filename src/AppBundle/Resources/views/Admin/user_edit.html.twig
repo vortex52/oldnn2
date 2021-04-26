@@ -1,0 +1,37 @@
+{% extends '@App/Admin/layout.html.twig' %}
+
+{% block content %} 
+	<div class="row">
+        <div class="col">
+        	<h2 class="mb-4">Hammer ban</h2>        	
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">id</th>
+						<th scope="col">name</th>
+						<th scope="col">email</th>
+						<th scope="col">photo</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="table-primary">
+						<td>{{ user.id }}</td>
+						<th scope="row">{{ user.username }}</th>
+						<td>{{ user.email }}</td>
+						<td>{{ photo }}</td>
+					</tr>
+				</tbody>
+			</table>
+
+			{{ form_start(form) }}
+				
+				{{ form_row(form.isEnabled) }}
+
+			    <button class="btn btn-secondary" type="submit">{{ "refresh"|trans() }}</button>
+			{{ form_end(form) }}			
+
+		  </div>
+    </div>
+
+
+{% endblock %}

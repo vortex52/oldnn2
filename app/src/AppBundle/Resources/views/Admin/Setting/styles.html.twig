@@ -1,0 +1,12 @@
+{% extends '@App/Admin/layout.html.twig' %}
+
+{% block content %}
+    <h3>{{ 'header.menu.styles'|trans() }}</h3>
+    <form method="post">
+        <button type="submit" class="btn btn-success" formnovalidate>{{ 'form.save'|trans() }}</button>
+        <hr>
+        <div class="form-group">
+            <textarea class="form-control" name="file_content" rows="30">{{ file_content }}</textarea>
+        </div>
+    </form>
+{% endblock %}
