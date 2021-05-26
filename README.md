@@ -1,77 +1,70 @@
-Symfony Standard Edition
+# oldnn
+Test project "old nn" v 1.2
 ========================
 
-**WARNING**: This distribution does not support Symfony 4. See the
-[Installing & Setting up the Symfony Framework][15] page to find a replacement
-that fits you best.
+General description:
+------------
+The project is a yandex maps api v2.0 on which markers are displayed in the form of a camera icon, when clicked, a photo with past views of our city is displayed.
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
+Together with the photo, the title, description and the estimated year of shooting are displayed.
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
+For the convenience of searching, there is a form for filtering by tags at the top of the page and a two-position slider for filtering marketers in the interval of years - just below the map
 
-What's inside?
---------------
+There is a custom admin panel for users to upload markers with photos
 
-The Symfony Standard Edition is configured with the following defaults:
+There is also a main admin panel for managing all markers and users
 
-  * An AppBundle you can use to start coding;
+Backend:
+------------
+The server side of the project is made on the symfony 3.4 php framework - framework-standard-edition
+**Additionally, the following bundles (modules) are installed:**
++ VichUploaderBundle - (work with files)
++ KnpPaginatorBundle - (pagination)
++ LiipImagineBundle - (thumbnails)
++ The features of the settings are almost standard:
++ Doctrine ORM, routing in yml configs, Doctrine annotations.
 
-  * Twig as the only configured template engine;
+Main functionality:
+------------
++ User authorization through the form.
++ User registration.
++ Arithmetic captcha on key forms.
++ Forgotten password recovery via email.
++ 3 role types (USER, ADMIN, ANONIM).
++ Dynamic loading of the first marker at page start.
++ Personal account for users - with the ability to change your password, upload your own markers and view your uploaded content.
++ Administrator's office - viewing and editing all markers, including hidden ones. View deletion and blocking of all users. Clearing the cache.
++ Sending an email to the administrator with a link for the subsequent moderation of the marker data
++ Auto-incrementing versions of styles and scripts when clearing the cache
++ Creating dynamic thumbnails for previewing the bullet list in the admin panel
 
-  * Doctrine ORM/DBAL;
+FrontEnd:
+------------
 
-  * Swiftmailer;
+**Libraries:**
++ jquery-1.12.0
++ jquery-ui-1.12.1
++ bootstrap-4.3.1
++ font-awesome-4.7.0
++ poper
++ bootstrap-confirmation
++ bootstrap-tagsinput
 
-  * Annotations enabled for everything.
+**Yandex map functionality:**
+Markers are loaded via json and added to the objectManager (which, as it were, implies stable operation with over 50,000 objects, but this is not accurate)
 
-It comes pre-configured with the following bundles:
+The backend is engaged in the formation of the source json file, creating it from 3 tables
 
-  * **FrameworkBundle** - The core Symfony framework bundle
-
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
-
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
-
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
-
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
-
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
-
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev env) - Adds code generation
-    capabilities
-
-  * [**WebServerBundle**][14] (in dev env) - Adds commands for running applications
-    using the PHP built-in web server
-
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
-
-Enjoy!
-
-[1]:  https://symfony.com/doc/3.4/setup.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/3.4/doctrine.html
-[8]:  https://symfony.com/doc/3.4/templating.html
-[9]:  https://symfony.com/doc/3.4/security.html
-[10]: https://symfony.com/doc/3.4/email.html
-[11]: https://symfony.com/doc/3.4/logging.html
-[13]: https://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html
-[14]: https://symfony.com/doc/current/setup/built_in_web_server.html
-[15]: https://symfony.com/doc/current/setup.html
+Additionally configured on the map:
+------------
++ Clustering markers
++ Custom marker icons
++ Custom cluster icons
++ Rotation of the icon depending on the rotation setting in the object properties
++ Initial loading of the first marker on page start
++ Popup output with enlarged photo when clicking on the right block
++ Auto-scaling of the map by the geometry of all markers when the map is first loaded
++ Highlighting the selected marker with a different color and centering on it when clicked
++ Filtering markers by tags via autocomplete in the search field.
++ Each marker can have several tags and you can filter them by any of the occurrences
++ Filter markers by year of the photo as a two-position slider
