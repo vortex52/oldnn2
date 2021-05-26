@@ -2,34 +2,27 @@
 
 namespace AppBundle\Controller\Admin;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
-
-use Symfony\Component\Security\Core\User\UserInterface;
 use AppBundle\Entity\Points;
-use AppBundle\Entity\Image;
-use AppBundle\Entity\User;
 use AppBundle\Entity\Tags;
-use Symfony\Component\HttpFoundation\File\File;
-
-use AppBundle\Form\PointForm;
+use AppBundle\Entity\User;
 use AppBundle\Form\AdminPointForm;
 use AppBundle\Form\AdminUserForm;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class AdminController extends Controller
 {
 
-	public function indexAction(Request $request)
+    public function indexAction(Request $request)
     {
-		return $this->render('@App/Admin/index.html.twig');
+        return $this->render('@App/Admin/index.html.twig');
     }
 
     public function clearCacheAction(Request $request)
     {
-		$path = realpath($this->get('kernel')->getRootDir() . '/../bin/console');
-        
-        $res = exec("php " . $path . " cache:clear", $gotIt);       
+        $path = realpath($this->get('kernel')->getRootDir() . '/../bin/console');
+
+        $res = exec("php " . $path . " cache:clear", $gotIt);
 
         $this->addFlash('success', 'КЭШ ОЧИЩЕН');
         return $this->redirectToRoute('admin.index');
@@ -37,28 +30,30 @@ class AdminController extends Controller
 
     public function getPointsAction(Request $request)
     {
-        $num = $request->query->getInt('page', 1);
+        $num   = $request->query->getInt('page', 1);
         $limit = 5;
 
         $points = $this->container->get('points.repository')->getAdminPoints($num, $limit);
-       
-        return $this->render(
-            '@App/Admin/get_user_points.html.twig', [
-                'points' => $points                
 
-        ]);
+        return $this->render(
+            '@App/Admin/get_user_points.html.twig',
+            [
+                'points' => $points,
+
+            ]
+        );
     }
 
     public function editPointAction(Request $request, Points $point)
     {
 
         $photo_obj = $point->getImage()->toArray();
-       
+
         $photos = [];
         foreach ($photo_obj as $photo) {
             $photos[] = [
-                'id' => $photo->getId(),
-                'src' => '/uploads/photo/'.$photo->getSrc()
+                'id'  => $photo->getId(),
+                'src' => '/uploads/photo/' . $photo->getSrc(),
             ];
         }
 
@@ -79,31 +74,30 @@ class AdminController extends Controller
 
             $this->addFlash('success', 'Маркер обновлен, файл json объектов записан');
             return $this->redirectToRoute('admin.get.points');
-            
         }
 
         return $this->render('@App/Admin/point_edit.html.twig', [
-            'point' => $point,
+            'point'  => $point,
             'photos' => $photos,
-            'form' => $editForm->createView(),
+            'form'   => $editForm->createView(),
         ]);
     }
 
     public function getUsersAction(Request $request)
     {
-        $num = $request->query->getInt('page', 1);
+        $num   = $request->query->getInt('page', 1);
         $limit = 10;
 
         $users = $this->container->get('user.repository')->getAllUsers($num, $limit);
 
         return $this->render('@App/Admin/all_users.html.twig', [
-            'users' =>  $users
+            'users' => $users,
         ]);
     }
 
     public function editUserAction(Request $request, User $user)
     {
-        $point_obj = count($user->getPoints()->toArray());        
+        $point_obj = count($user->getPoints()->toArray());
 
         $editForm = $this->createForm(AdminUserForm::class, $user);
 
@@ -111,21 +105,20 @@ class AdminController extends Controller
 
         if ($editForm->isSubmitted()) {
 
-            $user_b = $editForm->getData();           
+            $user_b = $editForm->getData();
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($user_b);
-            $em->flush();            
+            $em->flush();
 
             $this->addFlash('success', 'Пользователь обновлен');
             return $this->redirectToRoute('admin.get.users');
-
         }
 
         return $this->render('@App/Admin/user_edit.html.twig', [
-            'user' => $user,           
-            'form' => $editForm->createView(),
-            'photo' => $point_obj
+            'user'  => $user,
+            'form'  => $editForm->createView(),
+            'photo' => $point_obj,
         ]);
     }
 
@@ -142,7 +135,7 @@ class AdminController extends Controller
     {
         $json = $this->container->get('points.repository')->getPointsJson();
 
-        $path_to_json = realpath($this->get('kernel')->getRootDir() . '/../web/json/data_admin.json');     
+        $path_to_json = realpath($this->get('kernel')->getRootDir() . '/../web/json/data_admin.json');
 
         file_put_contents($path_to_json, $json);
 
@@ -154,9 +147,9 @@ class AdminController extends Controller
     {
         $json = $this->container->get('points.repository')->getPointsJson();
 
-        $path_to_json = realpath($this->get('kernel')->getRootDir() . '/../web/json/data_admin.json');     
+        $path_to_json = realpath($this->get('kernel')->getRootDir() . '/../web/json/data_admin.json');
 
-        file_put_contents($path_to_json, $json);        
+        file_put_contents($path_to_json, $json);
     }
 
     public function deletePointAction(Points $Points)
@@ -173,8 +166,8 @@ class AdminController extends Controller
 
     public function addAdminTags($tags, $point_id, $point, $enable)
     {
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery("DELETE FROM AppBundle:Tags u WHERE u.pointsId = :point_id")->setParameter('point_id', $point_id);            
+        $em    = $this->getDoctrine()->getManager();
+        $query = $em->createQuery("DELETE FROM AppBundle:Tags u WHERE u.pointsId = :point_id")->setParameter('point_id', $point_id);
         $query->execute();
 
         $arr = explode(",", $tags);

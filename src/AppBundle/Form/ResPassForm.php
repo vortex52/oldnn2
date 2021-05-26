@@ -1,33 +1,33 @@
 <?php
 namespace AppBundle\Form;
+
 use AppBundle\Entity\Respass;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ResPassForm extends AbstractType
 {
-	public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', EmailType::class, array(
-            	'label' => false,
-            	'attr' => ['placeholder' => 'form_type.reg_form.email']                
-        	))            
-            ->add('abc', TextType::class, array(
+            ->add('email', EmailType::class, [
                 'label' => false,
-                'attr' => ['placeholder' => 'form_type.reg_form.summ']
-            ))
+                'attr'  => ['placeholder' => 'form_type.reg_form.email'],
+            ])
+            ->add('abc', TextType::class, [
+                'label' => false,
+                'attr'  => ['placeholder' => 'form_type.reg_form.summ'],
+            ])
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => Respass::class,
-        ));
+        ]);
     }
 }

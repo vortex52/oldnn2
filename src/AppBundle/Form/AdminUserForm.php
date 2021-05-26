@@ -8,20 +8,20 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class AdminUserForm extends AbstractType
 {
-	public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('isEnabled',null, array(
-            	'label' => "enabled"               	
-        	))
+            ->add('isEnabled', null, [
+                'label' => 'enabled',
+            ])
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => User::class,
-        ));
+        ]);
     }
 
     public function getBlockPrefix()

@@ -11,19 +11,19 @@ class ImageForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder           
+        $builder
             ->add('imageFile', VichImageType::class, [
-                'label' => false,     
-                'allow_delete' => false,
-                'download_link' => false,            
+                'label'         => false,
+                'allow_delete'  => false,
+                'download_link' => false,
             ])
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => Image::class,
-        ));
+        ]);
     }
 }

@@ -2,12 +2,9 @@
 
 namespace AppBundle\Repository;
 
-//use Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface;
 use Doctrine\ORM\EntityRepository;
-
-use Knp\Component\Pager\Paginator;
 use Knp\Bundle\PaginatorBundle\Definition\PaginatorAwareInterface;
-
+use Knp\Component\Pager\Paginator;
 
 class UserRepository extends \Doctrine\ORM\EntityRepository implements PaginatorAwareInterface
 {
@@ -21,7 +18,7 @@ class UserRepository extends \Doctrine\ORM\EntityRepository implements Paginator
             ->setParameter('email', $username)
             ->getQuery()
             ->getOneOrNullResult();
-    }   
+    }
 
     public function setPaginator(Paginator $paginator)
     {
@@ -30,7 +27,7 @@ class UserRepository extends \Doctrine\ORM\EntityRepository implements Paginator
 
     public function getAllUsers($num, $limit = 10)
     {
-        $em = $this->getEntityManager();
+        $em    = $this->getEntityManager();
         $query = $em->createQuery("SELECT u FROM AppBundle:User u");
 
         return $this->paginator->paginate($query, $num, $limit);

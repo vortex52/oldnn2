@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Yaml\Yaml;
 
@@ -22,7 +21,7 @@ class CommandController extends Controller
         $this->addFlash('success', $content);
         return $this->redirectToRoute('admin.index');
     }
-    
+
     public function commandCacheWarmup(KernelInterface $kernel)
     {
         return $this->doCommand($kernel, 'cache:warmup');
@@ -37,7 +36,7 @@ class CommandController extends Controller
 
         $input = new ArrayInput(array(
             'command' => $command,
-            '--env' => $env
+            '--env'   => $env,
         ));
 
         $output = new BufferedOutput();
@@ -50,7 +49,7 @@ class CommandController extends Controller
 
     public function yamlParcerAsseatsUpper()
     {
-        $path_to_file = $this->get('kernel')->getRootDir().'/../src/AppBundle/Resources/config/asseats.yml';
+        $path_to_file = $this->get('kernel')->getRootDir() . '/../src/AppBundle/Resources/config/asseats.yml';
         $arr = Yaml::parse(file_get_contents($path_to_file));
 
         $upper = $arr['parameters']['my_version'];

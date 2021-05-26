@@ -3,11 +3,9 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
-
 
 /**
  * Points
@@ -135,14 +133,7 @@ class Points
     {
         $this->image = new ArrayCollection();
         $this->tags = new ArrayCollection();
-    }
-
-    // public function setChildren(Doctrine\Common\Collections\Collection $image)
-    // {
-    //     $this->children = $image;
-
-    //     return $this;
-    // }
+    }    
     
     public function getId()
     {

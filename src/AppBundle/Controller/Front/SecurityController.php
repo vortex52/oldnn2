@@ -2,9 +2,9 @@
 
 namespace AppBundle\Controller\Front;
 
+use AppBundle\Form\LoginForm;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
-use AppBundle\Form\LoginForm;
 
 class SecurityController extends Controller
 {
@@ -16,13 +16,12 @@ class SecurityController extends Controller
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-
         $form = $this->createForm(LoginForm::class, [
             //'_username' => $lastUsername,
         ]);
 
         return $this->render('@App/Front/Security/login.html.twig', [
-            'form' => $form->createView(),
+            'form'  => $form->createView(),
             'error' => $error,
         ]);
     }

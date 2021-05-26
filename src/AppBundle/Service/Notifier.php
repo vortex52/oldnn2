@@ -4,7 +4,7 @@ namespace AppBundle\Service;
 
 class Notifier
 {
-   
+
     private $mailer;
     private $templating;
 
@@ -16,11 +16,11 @@ class Notifier
 
     private $from = [
         'email' => 'admin@oldnn.com',
-        'name' => 'oldnn'
+        'name'  => 'oldnn',
     ];
 
     private $admins_emails = [
-        'vortex52@yandex.ru'
+        'vortex52@yandex.ru',
     ];
 
     public function sendTempPassMail($temporaryPass, $userEmail, $user_name)
@@ -31,9 +31,9 @@ class Notifier
             ->setBody(
                 $this->templating->render(
                     '@App/Email/client_ress_pass.html.twig', [
-                        'pass' => $temporaryPass, 
-                        'user_name' => $user_name
-                ]),
+                        'pass'      => $temporaryPass,
+                        'user_name' => $user_name,
+                    ]),
                 'text/html'
             );
 
@@ -48,13 +48,13 @@ class Notifier
             ->setBody(
                 $this->templating->render(
                     '@App/Email/admin_notif.html.twig', [
-                        'path' => $path,
-                        'user_name' => $user_name              
-                ]),
+                        'path'      => $path,
+                        'user_name' => $user_name,
+                    ]),
                 'text/html'
             );
 
         $this->mailer->send($message);
     }
-   
+
 }
