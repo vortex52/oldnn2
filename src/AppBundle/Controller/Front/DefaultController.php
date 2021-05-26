@@ -13,8 +13,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class DefaultController extends Controller
 {
-    
-    
+        
     public function indexAction(Request $request)
     {
 		$first_photo_id = 1;
@@ -40,29 +39,5 @@ class DefaultController extends Controller
             'year_range' => $year_range
         ]);
     }
-
-    public function TestEmailAction()
-    {
-        // Create the Transport
-        $transport = new \Swift_SendmailTransport('/usr/sbin/sendmail -t');
-
-        // Create the Mailer using your created Transport
-        $mailer = new \Swift_Mailer($transport);
-
-        $message = (new \Swift_Message('test'))
-            ->setFrom(['john@doe.com'])
-            ->setTo(['vortex52@yandex.ru'])
-            ->setBody(
-                $this->render(
-                    '@App/Email/admin_notif.html.twig', [
-                        'path' => 'path',
-                        'user_name' => 'user_name'
-                ]),
-                'text/html'
-            );            
-
-        return $mailer->send($message);
         
-    }
-    
 }

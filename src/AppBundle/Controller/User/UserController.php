@@ -17,7 +17,6 @@ use AppBundle\Service\Notifier;
 
 class UserController extends Controller
 {
-
 	public function indexAction(Request $request)
     {
 		if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
@@ -28,7 +27,7 @@ class UserController extends Controller
         return $this->render('@App/User/index.html.twig');
     }
 
-    public function ShowUserPointsAction(Request $request, UserInterface $user)
+    public function showUserPointsAction(Request $request, UserInterface $user)
     {
     	$userId = $user->getId();
         $num = $request->query->getInt('page', 1);
@@ -43,10 +42,9 @@ class UserController extends Controller
 		
     }
 
-    public function ShowUserPointAction(Request $request, Points $points, $id)
+    public function showUserPointAction(Request $request, Points $points, $id)
     {
-        
-        $photo_obj = $points->getImage()->toArray();
+       $photo_obj = $points->getImage()->toArray();
 
         $photos = [];
         foreach ($photo_obj as $photo) {
@@ -64,7 +62,7 @@ class UserController extends Controller
         
     }
 
-    public function AddUserPointsAction(Request $request, UserInterface $user, Notifier $notifier)
+    public function addUserPointsAction(Request $request, UserInterface $user, Notifier $notifier)
     {
         $userId = $user->getId();
         $user_name = $user->getUsername();
@@ -103,7 +101,7 @@ class UserController extends Controller
                 $em->persist($image);
                 $em->flush();
 
-                $this->AddTags($point->getTag(), $new_point_id, $point);
+                $this->addTags($point->getTag(), $new_point_id, $point);
 
                 $path = $request->getUriForPath('/admin/'.$new_point_id.'/edit_point');        
         
@@ -133,7 +131,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function AddTags($tags, $point_id, $point)
+    public function addTags($tags, $point_id, $point)
     {
         $em = $this->getDoctrine()->getManager();
 

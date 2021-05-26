@@ -12,15 +12,13 @@ use Doctrine\ORM\EntityRepository;
 
 class AjaxController extends Controller
 {
-	public function TagSearchAction(Request $request)
+	public function tagSearchAction(Request $request)
     {
         $term = $request->query->get('term');
 
-        if (!empty($term)) {
+        if (!empty($term)) {            
             $em = $this->getDoctrine()->getManager();
-
-            $query = $em->createQuery("SELECT distinct u.name FROM AppBundle:Tags u WHERE u.name LIKE '$term%' AND u.enable > 0");
-            
+            $query = $em->createQuery("SELECT distinct u.name FROM AppBundle:Tags u WHERE u.name LIKE '$term%' AND u.enable > 0");            
             $data = $query->getResult();
 
             $new_data = [];
@@ -34,7 +32,6 @@ class AjaxController extends Controller
             $response->setContent(json_encode($new_data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
             return $response;
         }
-
         else {
             $err = "error empty data";
             $response = new Response();

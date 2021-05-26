@@ -10,8 +10,7 @@
             {% endif %}
 
             <h2 class="mb-4">{{ 'auth_form.title'|trans() }}</h2>           
-            
-            {# form_start(form, {'action': path('login'), 'method': 'POST'}) #}
+           
             {{ form_start(form) }}
                 {{ form_row(form._email) }}
                 {{ form_row(form._password) }}
@@ -27,4 +26,5 @@
         </div>
     </div>
 </div>
+
 {% endblock %}

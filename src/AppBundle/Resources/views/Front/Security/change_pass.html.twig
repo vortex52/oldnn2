@@ -6,12 +6,10 @@
         <div class="col">
         	<h2 class="mb-4">{{ 'change_pass_form.title'|trans() }}</h2>
 
-			{{ form_start(form) }}
-			    
+			{{ form_start(form) }}			    
 			    {{ form_row(form.oldPassword) }}
 			    {{ form_row(form.plainPassword.first) }}
-			    {{ form_row(form.plainPassword.second) }}		    
-
+			    {{ form_row(form.plainPassword.second) }}
 			    <button class="btn btn-secondary" type="submit">{{ 'change_pass_form.button'|trans() }}</button>
 			{{ form_end(form) }}
 

@@ -26,19 +26,14 @@ login_check_route:
 reset_pass:
     path: /reset_pass
     defaults:
-        _controller: AppBundle:Front/Registration:ResetPassViewForm
+        _controller: AppBundle:Front/Registration:resetPassViewForm
 
 change_pass:
     path: /change_pass
     defaults:
-        _controller: AppBundle:Front/Registration:ChangePassUser
+        _controller: AppBundle:Front/Registration:changePassUser
 
 search_tags:
     path: /search_tags
     defaults:
-        _controller: AppBundle:Front/Ajax:TagSearch
-
-test.email:
-    path: /test_email
-    defaults:
-        _controller: AppBundle:Front/Default:TestEmail
+        _controller: AppBundle:Front/Ajax:tagSearch

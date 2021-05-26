@@ -1,5 +1,4 @@
-services:
-    
+services:    
     points.repository:
         public: true
         class: AppBundle\Repository\PointsRepository
@@ -27,9 +26,4 @@ services:
         public: true
         class: AppBundle\Security\FormLoginAuthenticator
         autowire: true
-        #arguments: ['@doctrine.orm.entity_manager', '@service_container']
-
-    # app.notifier:
-    #     public: true
-    #     class: AppBundle\Service\Notifier
-    #     arguments: ['@mailer', '@twig']
+        

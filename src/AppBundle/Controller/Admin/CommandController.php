@@ -13,9 +13,9 @@ use Symfony\Component\Yaml\Yaml;
 class CommandController extends Controller
 {
 
-    public function ClearCacheAction(KernelInterface $kernel)
+    public function clearCacheAction(KernelInterface $kernel)
     {
-        $this->YamlParcerAsseatsUpper();
+        $this->yamlParcerAsseatsUpper();
 
         $content = $this->doCommand($kernel, 'cache:clear');
 
@@ -48,7 +48,7 @@ class CommandController extends Controller
         return $content;
     }
 
-    public function YamlParcerAsseatsUpper()
+    public function yamlParcerAsseatsUpper()
     {
         $path_to_file = $this->get('kernel')->getRootDir().'/../src/AppBundle/Resources/config/asseats.yml';
         $arr = Yaml::parse(file_get_contents($path_to_file));

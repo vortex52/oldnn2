@@ -6,17 +6,17 @@ admin.index:
 admin.save.points.file:
     path: /save_points
     defaults:
-        _controller: AppBundle:Admin/Admin:SavePointsFile
+        _controller: AppBundle:Admin/Admin:savePointsFile
 
 admin.clear_cache:
     path: /clear_cache
     defaults:
-        _controller: AppBundle:Admin/Command:ClearCache
+        _controller: AppBundle:Admin/Command:сlearCache
 
 admin.get.points:
     path: /get_points
     defaults:
-        _controller: AppBundle:Admin/Admin:GetPoints
+        _controller: AppBundle:Admin/Admin:getPoints
 
 admin.edit.point:
     path: /{id}/edit_point
@@ -31,12 +31,12 @@ admin.del.point:
 admin.get.users:
     path: /get_users
     defaults:
-        _controller: AppBundle:Admin/Admin:GetUsers
+        _controller: AppBundle:Admin/Admin:getUsers
 
 admin.edit.user:
     path: /{id}/edit_user
     defaults:
-        _controller: AppBundle:Admin/Admin:EditUser
+        _controller: AppBundle:Admin/Admin:editUser
         
 admin.del.user:
     path: /{id}/del_user

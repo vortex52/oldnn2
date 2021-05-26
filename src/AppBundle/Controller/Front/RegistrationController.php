@@ -70,7 +70,7 @@ class RegistrationController extends Controller
         ]);
     }
 
-    public function ResetPassViewFormAction(Request $request, Notifier $notifier)
+    public function resetPassViewFormAction(Request $request, Notifier $notifier)
     {
         $user = new Respass();
         $form = $this->createForm(ResPassForm::class, $user);  
@@ -87,7 +87,7 @@ class RegistrationController extends Controller
                 return $this->redirectToRoute('reset_pass');
             }
 
-            $temporaryPass = $this->container->get('app.custom')->GenerateStr(6);
+            $temporaryPass = $this->container->get('app.custom')->generateStr(6);
 
             $email_check = $this->container->get('points.repository')->getUserByEmail($userEmail);
 
@@ -120,7 +120,7 @@ class RegistrationController extends Controller
         ]);
     }
 
-    public function ChangePassUserAction(Request $request, UserInterface $user)
+    public function changePassUserAction(Request $request, UserInterface $user)
     {
         $changePass = new Changepass();
         $form = $this->createForm(ChangePassForm::class,  $changePass);
@@ -146,8 +146,7 @@ class RegistrationController extends Controller
             $em->flush();
 
             $this->addFlash('success', 'ваш пароль изменен');
-            return $this->redirectToRoute('logout');
-           
+            return $this->redirectToRoute('logout');           
         }
 
         return $this->render(

@@ -25,7 +25,7 @@ class AdminController extends Controller
 		return $this->render('@App/Admin/index.html.twig');
     }
 
-    public function ClearCacheAction(Request $request)
+    public function clearCacheAction(Request $request)
     {
 		$path = realpath($this->get('kernel')->getRootDir() . '/../bin/console');
         
@@ -35,24 +35,13 @@ class AdminController extends Controller
         return $this->redirectToRoute('admin.index');
     }
 
-    public function GetPointsAction(Request $request)
+    public function getPointsAction(Request $request)
     {
         $num = $request->query->getInt('page', 1);
         $limit = 5;
 
         $points = $this->container->get('points.repository')->getAdminPoints($num, $limit);
-
-        // $photos = [];
-        // foreach ($points as $photo) {
-        //     foreach ($photo->getImage() as $value) {
-        //        $photos[] = [
-        //         'src' => '/uploads/photo/'.$value->getSrc()
-        //        ];
-        //     }
-        // }
-
-        //$imagineCacheManager = $this->get('liip_imagine.cache.manager');
-
+       
         return $this->render(
             '@App/Admin/get_user_points.html.twig', [
                 'points' => $points                
@@ -100,7 +89,7 @@ class AdminController extends Controller
         ]);
     }
 
-    public function GetUsersAction(Request $request)
+    public function getUsersAction(Request $request)
     {
         $num = $request->query->getInt('page', 1);
         $limit = 10;
@@ -112,7 +101,7 @@ class AdminController extends Controller
         ]);
     }
 
-    public function EditUserAction(Request $request, User $user)
+    public function editUserAction(Request $request, User $user)
     {
         $point_obj = count($user->getPoints()->toArray());        
 
@@ -149,7 +138,7 @@ class AdminController extends Controller
         return $this->redirectToRoute('admin.get.users');
     }
 
-    public function SavePointsFileAction(Request $request)
+    public function savePointsFileAction(Request $request)
     {
         $json = $this->container->get('points.repository')->getPointsJson();
 
@@ -161,7 +150,7 @@ class AdminController extends Controller
         return $this->redirectToRoute('admin.get.points');
     }
 
-    public function SavePointsFile()
+    public function savePointsFile()
     {
         $json = $this->container->get('points.repository')->getPointsJson();
 

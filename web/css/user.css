@@ -46,11 +46,11 @@ main {
 .bootstrap-tagsinput {
     width: 100%;
     background-color: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid #ccc;    
     display: inline-block;
     padding: 4px 6px;
     color: #555;
-    vertical-align: middle;
+    vertical-align: middle;   
     max-width: 100%;
     line-height: 22px;
     cursor: text;
@@ -61,7 +61,7 @@ main {
 }
 
 .label-info {
-    background-color: #343a40;
+    background-color: #343a40;    
 }
 
 .label {

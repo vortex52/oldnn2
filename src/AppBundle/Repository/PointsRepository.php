@@ -61,8 +61,7 @@ class PointsRepository extends \Doctrine\ORM\EntityRepository implements Paginat
         }
         else {
             return $res[0]['id'];
-        }
-                
+        }                
     }
 
     private function createArrayForObject($arr) 

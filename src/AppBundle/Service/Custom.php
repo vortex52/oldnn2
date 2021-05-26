@@ -24,13 +24,13 @@ class Custom {
         return $res;
     }
 
-    public function StrjsonToArr($str)
+    public function strjsonToArr($str)
     {
         $arr = (array)json_decode($str, true);
         return $arr;
     }
 
-    public function get_ip() 
+    public function getIp() 
     {
         if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
             $ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -44,7 +44,7 @@ class Custom {
         return $ip;
     }
     
-    public function GenerateStr($length = 10) 
+    public function generateStr($length = 10) 
     {
         $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRQSTUVWXYZ0123456789";
         $code = "";
@@ -56,11 +56,10 @@ class Custom {
         return $code;
     }    
 
-    public function CutUserFieldForm($length, $str)
+    public function cutUserFieldForm($length, $str)
     {
         $res = trim(mb_substr($str, 0, $length, 'UTF-8'));
         return $res = strip_tags($res);
-    }
-  
+    } 
 
 }
